@@ -9,14 +9,19 @@
   <body>
 
     <div id="app">
-      <p>No characters</p>
+      <p v-if="characterList.length === 0">No characters</p>
+      <ul v-else>
+        <li v-for="character in characterList">
+          {{character.name}}
+        </li>
+      </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
       Vue.createApp( {
         data: () => ({
-          characters: [
+          characterList: [
           {
             name: 'Aang'
           },
@@ -31,7 +36,7 @@
           }           
           ]
         })
-      })
+      }).mount('#app')
 
     </script>
   </body>
